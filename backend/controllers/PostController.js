@@ -74,9 +74,11 @@ export const update = async (req, res) => {
             {
                 title: req.body.title,
                 text: req.body.text,
-                imageUrl: req.body.imageUrl,
                 address: req.body.tags,
+                imageUrl: req.body.imageUrl,
                 user: req.userId,
+                logo: req.body.logo,
+                threeQuote: req.body.threeQuote,
             }
         );
 
@@ -99,6 +101,8 @@ export const create = async (req, res) => {
             imageUrl: req.body.imageUrl,
             address: req.body.address,
             user: req.userId,
+            logo: req.body.logo,
+            threeQuote: req.body.threeQuote,
         });
 
         const post = await doc.save();

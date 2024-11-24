@@ -21,4 +21,6 @@ export const postCreateValidation = [
     body("text", "Введите текст статьи").isLength({ min: 3 }).isString(),
     body("address", "Неверный адрес").optional().isString(),
     body("imageUrl", "Неверная ссылка на изображение").optional().isString(),
+    body("logo", "Неверная ссылка на изображение").optional().isString(),
+    body("threeQuote", "Введите фразы").isLength({ min: 5 }).isString(),
 ];

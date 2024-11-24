@@ -5,11 +5,11 @@ const PostSchema = new mongoose.Schema(
         title: {
             type: String,
             required: true,
+            unique: true,
         },
         text: {
             type: String,
             required: true,
-            unique: true,
         },
         address: {
             type: String,
@@ -21,6 +21,14 @@ const PostSchema = new mongoose.Schema(
             required: true,
         },
         imageUrl: String,
+        logo: {
+            type: String,
+            required: true,
+        },
+        threeQuote: {
+            type: String,
+            required: true,
+        },
     },
     {
         timestamps: true,

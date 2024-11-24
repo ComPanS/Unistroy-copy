@@ -1,0 +1,115 @@
+@import "../src/media/fonts/SeroPro/stylesheet.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #232020;
+    font-family: SeroPro, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #fff !important;
+}
+
+// main *{
+//     max-width: 100%; /* Ограничиваем ширину текста */
+//     overflow-wrap: break-word; /* Перенос длинных слов */
+// }
+
+h2 {
+    font-size: 38px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 120%;
+}
+
+.container {
+    padding: 0 96px;
+    width: 100%;
+}
+
+.container_1200 {
+    max-width: 1200px;
+}
+
+.green_underline {
+    a {
+        font-weight: normal;
+        color: #29973c;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.1s;
+    }
+
+    a:hover {
+        border-color: #29973c;
+    }
+
+    // a:hover::after {
+    //     content: "";
+    //     width: 100%;
+    //     position: absolute;
+    //     bottom: 2px;
+    //     left: 0;
+    //     height: 1px;
+    //     background-color: #29973c;
+    // }
+}
+
+.path_site_white {
+    display: flex;
+
+    .path_to {
+        position: relative;
+        padding-right: 5px;
+        color: white;
+        line-height: 150%;
+        font-weight: 300;
+        font-size: 12px;
+    }
+
+    .path_to::after {
+        content: "-";
+        margin-left: 5px;
+    }
+
+    .path_to:last-child::after {
+        content: "";
+    }
+
+    .path_to:not(:last-child):hover::before {
+        position: absolute;
+        content: "";
+        height: 1px;
+        background-color: white;
+        bottom: 3px;
+        left: 0;
+        width: 77%;
+    }
+
+    .path_to:last-child {
+        color: #c5c5c5;
+    }
+}
+
+.path_site_black {
+    @extend .path_site_white;
+    .path_to {
+        color: #919191;
+    }
+
+    .path_to:not(:last-child):hover{
+        background: none;
+        color: black;
+    }
+}
+
+// font-family: -apple-system, BlinkMacSystemFont, 'Roboto'; – задаёт приоритетный набор шрифтов. Если пользователь работает на устройстве Apple, будет использоваться системный шрифт, на других системах – BlinkMacSystemFont, а если они не доступны, то Roboto.
+// -webkit-font-smoothing: antialiased; – улучшает рендеринг шрифтов в браузерах на движке WebKit (например, Chrome и Safari).
+// -moz-osx-font-smoothing: grayscale; – улучшает рендеринг шрифтов для macOS в браузере Firefox.
+// background-color: #f5f5f5 !important; – задаёт светло-серый цвет фона для всего документа. Использование !important гарантирует, что этот стиль не будет переопределён другими стилями.
