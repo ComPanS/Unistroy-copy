@@ -119,7 +119,7 @@ const FAQ = () => {
     );
 };
 
-export const LandingMain = ({ activeCity }) => {
+export const LandingMain = ({ activeCity, setActiveCity }) => {
     const [phone, setPhone] = useState('');
     const handlePhoneChange = (e) => {
         let value = e.target.value.replace(/\D/g, ''); // Удаляем все нецифровые символы
@@ -211,7 +211,7 @@ export const LandingMain = ({ activeCity }) => {
                         <div className={styles.list_complexes}>
                             {posts.map((obj, index) =>
                                 activeCity === obj.address.split(', ')[0] ? (
-                                    <Post key={index} {...obj} isLoading={postsLoading} />
+                                    <Post key={index} {...obj} isLoading={postsLoading} setActiveCity={setActiveCity} />
                                 ) : (
                                     console.log(window.actCity)
                                 )
@@ -237,7 +237,7 @@ export const LandingMain = ({ activeCity }) => {
                                         </h3>
                                         <div className={styles.list_complexes}>
                                             {filteredPosts.map((obj) => (
-                                                <Post {...obj} isLoading={postsLoading} />
+                                                <Post {...obj} isLoading={postsLoading} setActiveCity={setActiveCity}/>
                                             ))}
                                         </div>
                                     </div>

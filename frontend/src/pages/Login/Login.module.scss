@@ -1,5 +1,5 @@
 .auth {
-    padding-top: 64px;
+    padding-top: 120px;
     padding-bottom: 120px;
     width: 100%;
     display: flex;
@@ -76,6 +76,14 @@
 
         input:last-child:hover {
             background-color: #72b737;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -15px;
+            margin-bottom: -10px;
+            display: block;
         }
     }
 }

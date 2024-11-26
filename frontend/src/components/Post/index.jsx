@@ -22,6 +22,7 @@ export const Post = ({
     logo,
     threeQuote,
     activeCity,
+    setActiveCity,
 }) => {
     const [phone, setPhone] = useState('');
 
@@ -52,9 +53,11 @@ export const Post = ({
 
     const visible = [visible1, visible2, visible3, setVisible4];
 
-
     useEffect(() => {
-        console.log('Component mounted');
+        // console.log('Component mounted');
+        if (address && isFullPost) {
+            setActiveCity(address.split(', ')[0]);
+        }
 
         // Сброс состояния видимости
         setVisible1(false);
@@ -68,35 +71,31 @@ export const Post = ({
         // Устанавливаем таймеры
         timers.push(
             setTimeout(() => {
-                console.log('Setting visible1');
                 setVisible1(true);
             }, 500)
         );
         timers.push(
             setTimeout(() => {
-                console.log('Setting visible2');
                 setVisible2(true);
             }, 700)
         );
         timers.push(
             setTimeout(() => {
-                console.log('Setting visible3');
                 setVisible3(true);
             }, 900)
         );
         timers.push(
             setTimeout(() => {
-                console.log('Setting visible4');
                 setVisible4(true);
             }, 2200)
         );
 
         // Очистка таймеров при размонтировании
         return () => {
-            console.log('Clearing timers');
+            // console.log('Clearing timers');
             timers.forEach(clearTimeout);
         };
-    }, []);
+    }, [_id]);
 
     if (isLoading) {
         return '';
