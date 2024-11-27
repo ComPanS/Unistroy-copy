@@ -74,7 +74,7 @@ export const update = async (req, res) => {
             {
                 title: req.body.title,
                 text: req.body.text,
-                address: req.body.tags,
+                address: req.body.address,
                 imageUrl: req.body.imageUrl,
                 user: req.userId,
                 logo: req.body.logo,

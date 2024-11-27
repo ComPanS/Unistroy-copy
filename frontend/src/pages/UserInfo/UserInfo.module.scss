@@ -1,0 +1,117 @@
+.user_info_posts {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 100px 0;
+    width: 100%;
+
+    .user_info {
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        .user_info_content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            h3 {
+                font-size: 22px;
+            }
+
+            button {
+                padding: 10px 40px;
+                font-size: 18px;
+                background: none;
+                border: 1px solid black;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                width: max-content;
+            }
+
+            button:hover {
+                background-color: red;
+                color: white;
+            }
+        }
+    }
+
+    .user_posts {
+        width: 100%;
+        .complexes {
+            padding: 100px 0;
+            // padding-bottom: 50px;
+            background-color: #f9f9fa;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+
+            hr {
+                width: 100%;
+            }
+
+            h2 {
+                margin-bottom: 40px;
+            }
+
+            .create_post {
+                border: 1px solid #29973c;
+                padding: 10px 20px;
+                transition: 0.5s;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+
+            .create_post:hover {
+                background-color: #29973c;
+                color: white;
+            }
+
+            .list_complexes {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                row-gap: 100px;
+                column-gap: 64px;
+                // margin-bottom: 100px;
+            }
+
+            .other_complexes {
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+                margin-bottom: 100px;
+
+                // .list_complexes {
+                //     border-top: 1px solid #000;
+                // }
+            }
+
+            .other_name_complexes {
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid #cfcfcf;
+                gap: 35px;
+
+                h3 {
+                    cursor: pointer;
+                    font-size: 26px;
+                    font-weight: 500;
+                    line-height: 130%;
+                    margin-top: 15px;
+
+                    span {
+                        font-size: 26px;
+                        font-weight: 500;
+                        line-height: 130%;
+                        color: #29973c;
+                    }
+                }
+
+                h3:hover {
+                    color: #29973c;
+                }
+            }
+        }
+    }
+}

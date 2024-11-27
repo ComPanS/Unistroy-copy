@@ -100,7 +100,7 @@
             height: 100%;
             align-items: end;
             justify-content: center;
-            transition: .5s;
+            transition: 0.5s;
             // z-index: -1;
 
             .quote_bf {
@@ -109,7 +109,7 @@
                 justify-content: center;
                 align-items: center;
                 height: 100%;
-                transition: .5s;
+                transition: 0.5s;
                 // z-index: -1;
 
                 h4 {
@@ -158,15 +158,46 @@
     }
 
     .name_desc {
-        display: flex;
+        // display: flex;
         flex-direction: column;
         margin: 80px 0;
-        gap: 30px;
+        // gap: 30px;
+
+        .edit_remove {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+
+            a {
+                border: 1px solid #29973c;
+                padding: 2px 20px;
+                transition: 0.5s;
+            }
+
+            a:hover {
+                background-color: #29973c;
+                color: white;
+            }
+
+            button {
+                border: 1px solid #fd4747;
+                padding: 2px 20px;
+                transition: 0.5s;
+                cursor: pointer;
+                background: none;
+            }
+
+            button:hover {
+                background-color: #fd4747;
+                color: white;
+            }
+        }
 
         h3 {
             font-size: 26px;
             font-weight: 500;
             line-height: 130%;
+            margin-bottom: 30px;
         }
 
         p {

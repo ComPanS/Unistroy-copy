@@ -13,6 +13,8 @@ import { LandingMain } from './components/LandingMain/index.jsx';
 import { FullPost } from './pages/FullPost.jsx';
 import { Posts } from './pages/Posts/index.jsx';
 import { Login } from './pages/Login/index.jsx';
+import { UserInfo } from './pages/UserInfo/index.jsx';
+import { AddPost } from './pages/AddPost/index.jsx';
 // import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 
 function App() {
@@ -20,23 +22,23 @@ function App() {
     const [activeCity, setActiveCity] = useState('Казань');
 
     const dispatch = useDispatch();
-    // const isReady = useSelector((state) => state.auth.status) !== 'loading';
+    const user = useSelector((state) => state.auth.data);
+    const isReady = useSelector((state) => state.auth.status) !== 'loading';
 
     React.useEffect(() => {
         dispatch(fetchUserInfo());
     }, [dispatch]);
 
     // if (!isReady) {
-    //   return (
-    //     <center>
-    //       <CircularProgress />
-    //     </center>
-    //   );
+    //     return (
+    //         <center>
+    //             <CircularProgress />
+    //         </center>
+    //     );
     // }
 
     return (
         <>
-            {/* <Header headerRef={headerRef} navRef={navRef}/> */}
             <HeaderTop
                 headerRef={headerRef}
                 activeCity={activeCity}
@@ -56,7 +58,19 @@ function App() {
                         path="/posts/:id"
                     />
                     <Route element={<Posts activeCity={activeCity} />} path="/posts/" />
-                    <Route element={<Login />} path="/auth/" />
+                    <Route element={<Login />} path="auth/" />
+                    <Route
+                        element={
+                            <UserInfo
+                                {...user}
+                                setActiveCity={setActiveCity}
+                                activeCity={activeCity}
+                            />
+                        }
+                        path="auth/me"
+                    />
+                    <Route element={<AddPost />} path="/posts/:id/edit" />
+                    <Route element={<AddPost />} path="/posts/create" />
                 </Routes>
                 <Footer style={contentStyle} />
             </main>

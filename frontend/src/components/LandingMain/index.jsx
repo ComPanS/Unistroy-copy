@@ -142,6 +142,7 @@ export const LandingMain = ({ activeCity, setActiveCity }) => {
     };
 
     const { posts, postStatus } = useSelector((state) => state.posts);
+    const user = useSelector((state) => state.auth.data);
     const dispatch = useDispatch();
 
     const uniqueAddresses = [...new Set(posts.map((obj) => obj.address.split(', ')[0]))];
@@ -211,9 +212,14 @@ export const LandingMain = ({ activeCity, setActiveCity }) => {
                         <div className={styles.list_complexes}>
                             {posts.map((obj, index) =>
                                 activeCity === obj.address.split(', ')[0] ? (
-                                    <Post key={index} {...obj} isLoading={postsLoading} setActiveCity={setActiveCity} />
+                                    <Post
+                                        key={index}
+                                        {...obj}
+                                        isLoading={postsLoading}
+                                        setActiveCity={setActiveCity}
+                                    />
                                 ) : (
-                                    console.log(window.actCity)
+                                    ""
                                 )
                             )}
                         </div>
@@ -237,7 +243,11 @@ export const LandingMain = ({ activeCity, setActiveCity }) => {
                                         </h3>
                                         <div className={styles.list_complexes}>
                                             {filteredPosts.map((obj) => (
-                                                <Post {...obj} isLoading={postsLoading} setActiveCity={setActiveCity}/>
+                                                <Post
+                                                    {...obj}
+                                                    isLoading={postsLoading}
+                                                    setActiveCity={setActiveCity}
+                                                />
                                             ))}
                                         </div>
                                     </div>

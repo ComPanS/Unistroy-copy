@@ -8,7 +8,7 @@ import styles from './Header.module.scss';
 import { fetchPosts } from '../../redux/slices/posts';
 
 import logo from '../../media/logo/logo.png';
-import user from '../../media/header/auth-like-menu/user.png';
+import user_img from '../../media/header/auth-like-menu/user.png';
 import like from '../../media/header/auth-like-menu/like.png';
 import menu from '../../media/header/auth-like-menu/menu.png';
 import down_arrow from '../../media/header/down-arrow.png';
@@ -17,11 +17,10 @@ export const HeaderTop = ({ activeCity, setActiveCity, headerRef }) => {
     const isAuth = false;
 
     const location = useLocation();
+    const navigate = useNavigate();
 
-    const onClickLogout = () => {};
-
-    // const [activeCity, setActiveCity] = useState("Казань");
-    // ActiveCity(activeCity);
+    const { posts, postStatus } = useSelector((state) => state.posts);
+    const user = useSelector((state) => state.auth.data);
 
     const [isOpen, setIsOpen] = useState(false); // Состояние для отслеживания открытия/закрытия меню
 
@@ -29,15 +28,13 @@ export const HeaderTop = ({ activeCity, setActiveCity, headerRef }) => {
         setIsOpen(!isOpen); // Переключение состояния открытия/закрытия
     };
 
-    const { posts, postStatus } = useSelector((state) => state.posts);
     const postsLoading = postStatus === 'loading';
     const dispatch = useDispatch();
 
     const uniqueAddresses = [...new Set(posts.map((obj) => obj.address.split(', ')[0]))];
 
-    const navigate = useNavigate();
     const handleLinkClick = (id) => {
-        navigate('/');
+        // navigate('/');
         // console.log(id);
         navigate(`/posts/${id}`);
     };
@@ -69,11 +66,25 @@ export const HeaderTop = ({ activeCity, setActiveCity, headerRef }) => {
                                             onClick={() => handleLinkClick(obj._id)}
                                         >
                                             <div className={styles.project_logo}>
-                                                <img src={obj.logo} alt="" />
+                                                <img
+                                                    src={
+                                                        obj.logo?.startsWith('http')
+                                                            ? obj.logo
+                                                            : `http://localhost:4444${obj.logo}`
+                                                    }
+                                                    alt=""
+                                                />
                                             </div>
                                             {obj.title}
                                             <div className={styles.landscape}>
-                                                <img src={obj.imageUrl} alt="" />
+                                                <img
+                                                    src={
+                                                        obj.imageUrl?.startsWith('http')
+                                                            ? obj.imageUrl
+                                                            : `http://localhost:4444${obj.imageUrl}`
+                                                    }
+                                                    alt=""
+                                                />
                                             </div>
                                         </Link>
                                     </li>
@@ -170,9 +181,15 @@ export const HeaderTop = ({ activeCity, setActiveCity, headerRef }) => {
                     </div>
                 </div>
                 <div className={styles.auth_like_menu}>
-                    <Link to="/auth">
-                        <img src={user} alt="" />
-                    </Link>
+                    {user ? (
+                        <Link to="/auth/me">
+                            <img src={user_img} alt="" />
+                        </Link>
+                    ) : (
+                        <Link to="/auth">
+                            <img src={user_img} alt="" />
+                        </Link>
+                    )}
                     <a href="#">
                         <img src={like} alt="" />
                     </a>

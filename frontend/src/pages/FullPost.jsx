@@ -32,6 +32,7 @@ export const FullPost = ({ activeCity, setActiveCity }) => {
                 isFullPost
                 setActiveCity={setActiveCity}
                 activeCity={activeCity}
+                // user={data.user._id}
             />
         </>
     );
