@@ -1,4 +1,4 @@
-# Unistroy-copy
+![image](https://github.com/user-attachments/assets/adf83ebb-a2a2-430c-a72e-84ab5449a4e1)# Unistroy-copy
  
 Этот проект заточен, чтобы закрепить знания и полчить новые навыки. В конечном счете будет проект, который будет схож с сайтом [Унистроя](https://unistroyrf.ru/). 
 
@@ -32,3 +32,23 @@
 5. **Axios**: HTTP-клиент на основе промисов для выполнения запросов к серверной части.
 6. **Sass**: Препроцессор CSS для написания более поддерживаемых и масштабируемых стилей.
 7. **React Hook Form**: Библиотека для управления формами в React-приложениях.
+
+
+### Скрины с сайта
+
+#### Главная страница
+![image](https://github.com/user-attachments/assets/7b934004-1ee1-49c1-b4e8-9e077553e0f9)
+
+#### Header
+![image](https://github.com/user-attachments/assets/a8df8d46-442e-4f7e-b9d3-1818c9b68ca3)
+
+#### Пример одного из статей
+[React App.pdf](https://github.com/user-attachments/files/17966325/React.App.pdf)
+
+#### Профиль
+![image](https://github.com/user-attachments/assets/4793ab80-75bd-4362-b353-f21272b380ae)
+
+#### Авторизация
+![image](https://github.com/user-attachments/assets/2054075a-b8b9-4fc8-8958-20b385d423b1)
+
+
